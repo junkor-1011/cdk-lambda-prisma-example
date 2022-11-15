@@ -1,31 +1,28 @@
 import 'source-map-support/register';
 
-import { z } from 'zod'
-import { PrismaClient } from '@prisma/client'
+import { z } from 'zod';
+import { PrismaClient } from '@prisma/client';
 import type { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
 const requestBodySchema = z.object({
   name: z.string(),
   rank: z.number(),
-})
+});
 
-export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+export const lambdaHandler = async (
+  event: APIGatewayProxyEvent,
+): Promise<APIGatewayProxyResult> => {
   const prisma = new PrismaClient({
-    log: [
-      'query',
-      'info',
-      'warn',
-      'error',
-    ]
-  })
+    log: ['query', 'info', 'warn', 'error'],
+  });
   try {
     const { id } = event.pathParameters as any; // TMP
     if (typeof id !== 'string') {
-      throw new Error('id is wrong')
+      throw new Error('id is wrong');
     }
 
-    const body = JSON.parse(event.body || '')
-    const requestBody = requestBodySchema.parse(body)
+    const body = JSON.parse(event.body || '');
+    const requestBody = requestBodySchema.parse(body);
 
     const user = await prisma.user.upsert({
       where: {
@@ -37,15 +34,15 @@ export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGat
       create: {
         id: Number(id),
         ...requestBody,
-      }
+      },
     });
     const response = {
       statusCode: 200,
       body: JSON.stringify({
         message: 'prisma success',
         user,
-      })
-    }
+      }),
+    };
     return response;
   } catch (err) {
     console.log(err);
@@ -54,7 +51,7 @@ export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGat
       body: JSON.stringify({
         message: 'db error',
       }),
-    }
+    };
     return response;
   }
-}
+};

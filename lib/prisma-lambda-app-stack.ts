@@ -11,7 +11,7 @@ import { Construct } from 'constructs';
 
 const environmentForPrisma = {
   DATABASE_URL: 'postgres://dummy:5443/mydb',
-}
+};
 const commandHooksForPrisma = {
   beforeInstall(inputDir: string, outputDir: string): string[] {
     return [``];
@@ -23,9 +23,9 @@ const commandHooksForPrisma = {
     return [
       `cp ${inputDir}/node_modules/.pnpm/prisma@4.6.1/node_modules/prisma/libquery_engine-rhel-openssl-1.0.x.so.node ${outputDir}`,
       `cp ${inputDir}/packages/lambda/prisma/schema.prisma ${outputDir}`,
-    ]
-  }
-}
+    ];
+  },
+};
 
 export class PrismaLambdaAppStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -39,7 +39,7 @@ export class PrismaLambdaAppStack extends Stack {
         sourceMap: true,
         minify: true,
       },
-    })
+    });
 
     const getUsersLambda = new NodejsFunction(this, 'GetUsersLambda', {
       entry: 'packages/lambda/functions/user/get.ts',
@@ -51,9 +51,9 @@ export class PrismaLambdaAppStack extends Stack {
         commandHooks: commandHooksForPrisma,
       },
       environment: {
-        ...environmentForPrisma
-      }
-    })
+        ...environmentForPrisma,
+      },
+    });
 
     const getUserByIdLambda = new NodejsFunction(this, 'GetUserByIdLambda', {
       entry: 'packages/lambda/functions/user/[id].get.ts',
@@ -65,9 +65,9 @@ export class PrismaLambdaAppStack extends Stack {
         commandHooks: commandHooksForPrisma,
       },
       environment: {
-        ...environmentForPrisma
-      }
-    })
+        ...environmentForPrisma,
+      },
+    });
 
     const putUserByIdLambda = new NodejsFunction(this, 'PutUserByIdLambda', {
       entry: 'packages/lambda/functions/user/[id].put.ts',
@@ -79,20 +79,20 @@ export class PrismaLambdaAppStack extends Stack {
         commandHooks: commandHooksForPrisma,
       },
       environment: {
-        ...environmentForPrisma
-      }
-    })
+        ...environmentForPrisma,
+      },
+    });
 
     const api = new apigateway.RestApi(this, 'exampleApiGateway', {
       restApiName: `testapp-apigateway`,
     });
-    api.root.addMethod('GET', new apigateway.LambdaIntegration(helloLambda))
+    api.root.addMethod('GET', new apigateway.LambdaIntegration(helloLambda));
 
-    const user = api.root.addResource('user')
-    user.addMethod('GET', new apigateway.LambdaIntegration(getUsersLambda))
+    const user = api.root.addResource('user');
+    user.addMethod('GET', new apigateway.LambdaIntegration(getUsersLambda));
 
-    const idOfUser = user.addResource("{id}")
-    idOfUser.addMethod('GET', new apigateway.LambdaIntegration(getUserByIdLambda))
-    idOfUser.addMethod('PUT', new apigateway.LambdaIntegration(putUserByIdLambda))
+    const idOfUser = user.addResource('{id}');
+    idOfUser.addMethod('GET', new apigateway.LambdaIntegration(getUserByIdLambda));
+    idOfUser.addMethod('PUT', new apigateway.LambdaIntegration(putUserByIdLambda));
   }
 }
