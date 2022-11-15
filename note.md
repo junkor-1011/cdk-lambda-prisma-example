@@ -19,3 +19,7 @@ AWS SAM:
 
 - [AWS Documentation - sam local start-api](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-local-start-api.html)
   - `--env-vars`について、任意の環境変数を注入出来る訳ではなく、予めテンプレート(cdk)で該当する環境変数を作っておく必要があることに注意
+
+CDK Snapshot Test:
+
+- [DevelopersIO - AWS CDK v2 のスナップショットテストでアセットを無視する方法](https://dev.classmethod.jp/articles/aws-cdk-v2-unit-test-ignore-assets/)
