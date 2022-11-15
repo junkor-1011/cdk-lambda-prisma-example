@@ -8,7 +8,9 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
+    "typecheck": "tsc --noEmit",
+    "unit": "jest",
+    "test": "pnpm typecheck && pnpm unit",
     "cdk": "cdk",
     "lint": "eslint --ext .ts .",
     "lint:fix": "eslint --fix --ext .ts .",
