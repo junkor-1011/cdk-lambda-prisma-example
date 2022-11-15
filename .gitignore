@@ -405,3 +405,10 @@ $RECYCLE.BIN/
 
 tmp
 .tmp
+
+*.tar.xz
+*.tar.bz2
+*.tar.gz
+*.tgz
+
+env.json
