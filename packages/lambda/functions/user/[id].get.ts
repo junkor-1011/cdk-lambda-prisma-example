@@ -1,6 +1,9 @@
 import 'source-map-support/register';
 
-import { PrismaClient, Prisma } from '@prisma/client';
+import {
+  PrismaClient,
+  // Prisma,
+} from '@prisma/client';
 import type { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
 export const lambdaHandler = async (
@@ -11,15 +14,15 @@ export const lambdaHandler = async (
   });
   console.log('[DEBUG] before try');
   try {
-    const { id } = event.pathParameters as any; // TMP
-    if (typeof id !== 'string') {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const { id: _id } = event.pathParameters as any; // TMP
+    if (typeof _id !== 'string') {
       throw new Error('id is wrong');
     }
+    const id = Number(_id);
 
     const user =
-      await prisma.$queryRaw`SELECT "public"."User"."id", "public"."User"."name", "public"."User"."rank" FROM "public"."User" WHERE "public"."User"."id" = ${Number(
-        id,
-      )};`;
+      await prisma.$queryRaw`SELECT "public"."User"."id", "public"."User"."name", "public"."User"."rank" FROM "public"."User" WHERE "public"."User"."id" = ${id};`;
     const response = {
       statusCode: 200,
       body: JSON.stringify({

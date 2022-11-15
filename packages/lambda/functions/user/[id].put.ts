@@ -16,23 +16,24 @@ export const lambdaHandler = async (
     log: ['query', 'info', 'warn', 'error'],
   });
   try {
-    const { id } = event.pathParameters as any; // TMP
-    if (typeof id !== 'string') {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const { id: _id } = event.pathParameters as any; // TMP
+    if (typeof _id !== 'string') {
       throw new Error('id is wrong');
     }
+    const id = Number(_id);
 
-    const body = JSON.parse(event.body || '');
-    const requestBody = requestBodySchema.parse(body);
+    const requestBody = requestBodySchema.parse(JSON.parse(event.body ?? ''));
 
     const user = await prisma.user.upsert({
       where: {
-        id: Number(id),
+        id,
       },
       update: {
         ...requestBody,
       },
       create: {
-        id: Number(id),
+        id,
         ...requestBody,
       },
     });
