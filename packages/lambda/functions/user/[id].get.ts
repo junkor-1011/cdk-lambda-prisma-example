@@ -22,7 +22,7 @@ export const lambdaHandler = async (
     const id = Number(_id);
 
     const user =
-      await prisma.$queryRaw`SELECT "public"."User"."id", "public"."User"."name", "public"."User"."rank" FROM "public"."User" WHERE "public"."User"."id" = ${id};`;
+      await prisma.$queryRaw`SELECT id, name, rank FROM "public"."User" WHERE id = ${id}`;
     const response = {
       statusCode: 200,
       body: JSON.stringify({
