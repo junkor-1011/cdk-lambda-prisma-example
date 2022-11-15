@@ -1,0 +1,894 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test 1`] = `
+{
+  "Outputs": {
+    "exampleApiGatewayEndpoint53332B01": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://",
+            {
+              "Ref": "exampleApiGateway887F3111",
+            },
+            ".execute-api.",
+            {
+              "Ref": "AWS::Region",
+            },
+            ".",
+            {
+              "Ref": "AWS::URLSuffix",
+            },
+            "/",
+            {
+              "Ref": "exampleApiGatewayDeploymentStageprodD6A63D21",
+            },
+            "/",
+          ],
+        ],
+      },
+    },
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "GetUserByIdLambdaDCA269A3": {
+      "DependsOn": [
+        "GetUserByIdLambdaServiceRole7C87E7E4",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "571f0a53ea85f0a6c29d80a8c0ed0c92464b8f7118c10ecec1dccb03d80ee9a5.zip",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATABASE_URL": "postgres://dummy:5443/mydb",
+          },
+        },
+        "Handler": "index.lambdaHandler",
+        "Role": {
+          "Fn::GetAtt": [
+            "GetUserByIdLambdaServiceRole7C87E7E4",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "GetUserByIdLambdaServiceRole7C87E7E4": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "GetUsersLambda4ACBBAFD": {
+      "DependsOn": [
+        "GetUsersLambdaServiceRoleA2144AFC",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "c47922b5cb19a84f3a1c1a7c8c295b2756d7457326de9ba6788f5fcb411ff36d.zip",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATABASE_URL": "postgres://dummy:5443/mydb",
+          },
+        },
+        "Handler": "index.lambdaHandler",
+        "Role": {
+          "Fn::GetAtt": [
+            "GetUsersLambdaServiceRoleA2144AFC",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "GetUsersLambdaServiceRoleA2144AFC": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "HelloLambda3D9C82D6": {
+      "DependsOn": [
+        "HelloLambdaServiceRoleE071F162",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "649697dff8500178c942654d7e08caf4a09282410daad5d2c7d82f6478cf140d.zip",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+          },
+        },
+        "Handler": "index.lambdaHandler",
+        "Role": {
+          "Fn::GetAtt": [
+            "HelloLambdaServiceRoleE071F162",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "HelloLambdaServiceRoleE071F162": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "PutUserByIdLambdaE764972B": {
+      "DependsOn": [
+        "PutUserByIdLambdaServiceRole397F14D5",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "481be565dd2c98d9123fa9cdca86efe9bc5a50be5b4878df3c2694130919a571.zip",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "DATABASE_URL": "postgres://dummy:5443/mydb",
+          },
+        },
+        "Handler": "index.lambdaHandler",
+        "Role": {
+          "Fn::GetAtt": [
+            "PutUserByIdLambdaServiceRole397F14D5",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs16.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "PutUserByIdLambdaServiceRole397F14D5": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "exampleApiGateway887F3111": {
+      "Properties": {
+        "Name": "testapp-apigateway",
+      },
+      "Type": "AWS::ApiGateway::RestApi",
+    },
+    "exampleApiGatewayAccount63120D6C": {
+      "DeletionPolicy": "Retain",
+      "DependsOn": [
+        "exampleApiGateway887F3111",
+      ],
+      "Properties": {
+        "CloudWatchRoleArn": {
+          "Fn::GetAtt": [
+            "exampleApiGatewayCloudWatchRole457C6E52",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::ApiGateway::Account",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "exampleApiGatewayCloudWatchRole457C6E52": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "apigateway.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "exampleApiGatewayDeployment5F488D146f66eaf195c97fb59e502f4ff4eba4db": {
+      "DependsOn": [
+        "exampleApiGatewayGET8D6918B2",
+        "exampleApiGatewayuseridGET5E966DF6",
+        "exampleApiGatewayuseridPUT110F3C1B",
+        "exampleApiGatewayuseridB3426E70",
+        "exampleApiGatewayuserGET83399C35",
+        "exampleApiGatewayuserC01BB9B0",
+      ],
+      "Properties": {
+        "Description": "Automatically created by the RestApi construct",
+        "RestApiId": {
+          "Ref": "exampleApiGateway887F3111",
+        },
+      },
+      "Type": "AWS::ApiGateway::Deployment",
+    },
+    "exampleApiGatewayDeploymentStageprodD6A63D21": {
+      "DependsOn": [
+        "exampleApiGatewayAccount63120D6C",
+      ],
+      "Properties": {
+        "DeploymentId": {
+          "Ref": "exampleApiGatewayDeployment5F488D146f66eaf195c97fb59e502f4ff4eba4db",
+        },
+        "RestApiId": {
+          "Ref": "exampleApiGateway887F3111",
+        },
+        "StageName": "prod",
+      },
+      "Type": "AWS::ApiGateway::Stage",
+    },
+    "exampleApiGatewayGET8D6918B2": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "HelloLambda3D9C82D6",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Fn::GetAtt": [
+            "exampleApiGateway887F3111",
+            "RootResourceId",
+          ],
+        },
+        "RestApiId": {
+          "Ref": "exampleApiGateway887F3111",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "exampleApiGatewayGETApiPermissionTestStackexampleApiGatewayFD0DA202GET08D25029": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "HelloLambda3D9C82D6",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              {
+                "Ref": "exampleApiGateway887F3111",
+              },
+              "/",
+              {
+                "Ref": "exampleApiGatewayDeploymentStageprodD6A63D21",
+              },
+              "/GET/",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "exampleApiGatewayGETApiPermissionTestTestStackexampleApiGatewayFD0DA202GET55EA30FA": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "HelloLambda3D9C82D6",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              {
+                "Ref": "exampleApiGateway887F3111",
+              },
+              "/test-invoke-stage/GET/",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "exampleApiGatewayuserC01BB9B0": {
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "exampleApiGateway887F3111",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "user",
+        "RestApiId": {
+          "Ref": "exampleApiGateway887F3111",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "exampleApiGatewayuserGET83399C35": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetUsersLambda4ACBBAFD",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "exampleApiGatewayuserC01BB9B0",
+        },
+        "RestApiId": {
+          "Ref": "exampleApiGateway887F3111",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "exampleApiGatewayuserGETApiPermissionTestStackexampleApiGatewayFD0DA202GETuserABB441BC": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetUsersLambda4ACBBAFD",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              {
+                "Ref": "exampleApiGateway887F3111",
+              },
+              "/",
+              {
+                "Ref": "exampleApiGatewayDeploymentStageprodD6A63D21",
+              },
+              "/GET/user",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "exampleApiGatewayuserGETApiPermissionTestTestStackexampleApiGatewayFD0DA202GETuser1BF76F0B": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetUsersLambda4ACBBAFD",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              {
+                "Ref": "exampleApiGateway887F3111",
+              },
+              "/test-invoke-stage/GET/user",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "exampleApiGatewayuseridB3426E70": {
+      "Properties": {
+        "ParentId": {
+          "Ref": "exampleApiGatewayuserC01BB9B0",
+        },
+        "PathPart": "{id}",
+        "RestApiId": {
+          "Ref": "exampleApiGateway887F3111",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "exampleApiGatewayuseridGET5E966DF6": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetUserByIdLambdaDCA269A3",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "exampleApiGatewayuseridB3426E70",
+        },
+        "RestApiId": {
+          "Ref": "exampleApiGateway887F3111",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "exampleApiGatewayuseridGETApiPermissionTestStackexampleApiGatewayFD0DA202GETuserid45688E88": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetUserByIdLambdaDCA269A3",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              {
+                "Ref": "exampleApiGateway887F3111",
+              },
+              "/",
+              {
+                "Ref": "exampleApiGatewayDeploymentStageprodD6A63D21",
+              },
+              "/GET/user/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "exampleApiGatewayuseridGETApiPermissionTestTestStackexampleApiGatewayFD0DA202GETuseridACC28906": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetUserByIdLambdaDCA269A3",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              {
+                "Ref": "exampleApiGateway887F3111",
+              },
+              "/test-invoke-stage/GET/user/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "exampleApiGatewayuseridPUT110F3C1B": {
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "PUT",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "PutUserByIdLambdaE764972B",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": {
+          "Ref": "exampleApiGatewayuseridB3426E70",
+        },
+        "RestApiId": {
+          "Ref": "exampleApiGateway887F3111",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "exampleApiGatewayuseridPUTApiPermissionTestStackexampleApiGatewayFD0DA202PUTuserid69FEE869": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "PutUserByIdLambdaE764972B",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              {
+                "Ref": "exampleApiGateway887F3111",
+              },
+              "/",
+              {
+                "Ref": "exampleApiGatewayDeploymentStageprodD6A63D21",
+              },
+              "/PUT/user/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "exampleApiGatewayuseridPUTApiPermissionTestTestStackexampleApiGatewayFD0DA202PUTuserid8EBD1097": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "PutUserByIdLambdaE764972B",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              {
+                "Ref": "exampleApiGateway887F3111",
+              },
+              "/test-invoke-stage/PUT/user/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
