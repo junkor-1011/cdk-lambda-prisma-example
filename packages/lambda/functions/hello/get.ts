@@ -19,6 +19,9 @@ export const lambdaHandler = async (
       body: JSON.stringify({
         message: 'hello world',
         url: myUrl,
+        queryParams: {
+          ...event.queryStringParameters,
+        },
       }),
     };
   } catch (err) {
