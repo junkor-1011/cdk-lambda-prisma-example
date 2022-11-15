@@ -5,4 +5,5 @@ module.exports = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
+  snapshotSerializers: ['<rootDir>/test/plugins/ignore-asset-hash.ts'],
 };
