@@ -34,7 +34,7 @@ export class PrismaLambdaAppStack extends Stack {
     const helloLambda = new NodejsFunction(this, 'HelloLambda', {
       entry: 'packages/lambda/functions/hello/get.ts',
       handler: 'lambdaHandler',
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime: lambda.Runtime.NODEJS_18_X,
       bundling: {
         sourceMap: true,
         minify: true,
@@ -44,7 +44,7 @@ export class PrismaLambdaAppStack extends Stack {
     const getUsersLambda = new NodejsFunction(this, 'GetUsersLambda', {
       entry: 'packages/lambda/functions/user/get.ts',
       handler: 'lambdaHandler',
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime: lambda.Runtime.NODEJS_18_X,
       bundling: {
         sourceMap: true,
         minify: true,
@@ -58,7 +58,7 @@ export class PrismaLambdaAppStack extends Stack {
     const getUserByIdLambda = new NodejsFunction(this, 'GetUserByIdLambda', {
       entry: 'packages/lambda/functions/user/[id].get.ts',
       handler: 'lambdaHandler',
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime: lambda.Runtime.NODEJS_18_X,
       bundling: {
         sourceMap: true,
         minify: true,
@@ -72,7 +72,7 @@ export class PrismaLambdaAppStack extends Stack {
     const putUserByIdLambda = new NodejsFunction(this, 'PutUserByIdLambda', {
       entry: 'packages/lambda/functions/user/[id].put.ts',
       handler: 'lambdaHandler',
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime: lambda.Runtime.NODEJS_18_X,
       bundling: {
         sourceMap: true,
         minify: true,
