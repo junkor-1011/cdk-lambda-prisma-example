@@ -4,6 +4,7 @@
     "lib": ["esnext"],
     "module": "commonjs",
     "baseUrl": "./",
+    "paths": { "$lambda/*": ["./*"] },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,

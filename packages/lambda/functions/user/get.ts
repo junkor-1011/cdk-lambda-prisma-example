@@ -1,14 +1,11 @@
 import 'source-map-support/register';
-
-import { PrismaClient } from '@prisma/client';
 import type { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
+
+import { prismaClient as prisma } from '$lambda/lib/prisma';
 
 export const lambdaHandler = async (
   event: APIGatewayProxyEvent,
 ): Promise<APIGatewayProxyResult> => {
-  const prisma = new PrismaClient({
-    log: ['query', 'info', 'warn', 'error'],
-  });
   try {
     const users = await prisma.user.findMany();
     const response = {
