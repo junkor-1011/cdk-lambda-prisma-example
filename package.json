@@ -1,5 +1,6 @@
 {
   "name": "prisma-lambda-app",
+  "packageManager": "pnpm@7.17.0",
   "private": true,
   "version": "0.1.0",
   "bin": {
