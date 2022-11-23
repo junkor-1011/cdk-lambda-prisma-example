@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
+    "target": "ES2020",
     "module": "commonjs",
-    "lib": ["es2018"],
+    "lib": ["es2020"],
+    "baseUrl": "./",
+    "paths": { "$lambda/*": ["packages/lambda/*"] },
     "declaration": true,
     "esModuleInterop": true,
     "strict": true,
