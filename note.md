@@ -12,6 +12,7 @@ sam local start-api -t cdk.out/PrismaLambdaAppStack.template.json --env-vars ./e
 Prisma:
 
 - [Prisma - Deploying to AWS Lambda](https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-aws-lambda)
+- [Prisma - Connection management](https://www.prisma.io/docs/guides/performance-and-optimization/connection-management#serverless-environments-faas)
 - [Lambda 関数で Prisma を利用するときの Tips](https://kiririmode.hatenablog.jp/entry/20220619/1655622443)
 - [DevelopersIO - AWS CDK の NodejsFunction で Prisma をバンドルして Lambda へデプロイする](https://dev.classmethod.jp/articles/aws-cdk-nodejsfunction-prisma-deploy/)
 
