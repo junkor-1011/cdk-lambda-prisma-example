@@ -42,7 +42,7 @@ export class PrismaLambdaAppStack extends Stack {
     });
 
     const getUsersLambda = new NodejsFunction(this, 'GetUsersLambda', {
-      entry: 'packages/lambda/functions/user/get.ts',
+      entry: 'packages/lambda/functions/users/get.ts',
       handler: 'lambdaHandler',
       runtime: lambda.Runtime.NODEJS_18_X,
       bundling: {
@@ -56,7 +56,7 @@ export class PrismaLambdaAppStack extends Stack {
     });
 
     const getUserByIdLambda = new NodejsFunction(this, 'GetUserByIdLambda', {
-      entry: 'packages/lambda/functions/user/[id].get.ts',
+      entry: 'packages/lambda/functions/users/[id].get.ts',
       handler: 'lambdaHandler',
       runtime: lambda.Runtime.NODEJS_18_X,
       bundling: {
@@ -70,7 +70,7 @@ export class PrismaLambdaAppStack extends Stack {
     });
 
     const putUserByIdLambda = new NodejsFunction(this, 'PutUserByIdLambda', {
-      entry: 'packages/lambda/functions/user/[id].put.ts',
+      entry: 'packages/lambda/functions/users/[id].put.ts',
       handler: 'lambdaHandler',
       runtime: lambda.Runtime.NODEJS_18_X,
       bundling: {
@@ -88,10 +88,10 @@ export class PrismaLambdaAppStack extends Stack {
     });
     api.root.addMethod('GET', new apigateway.LambdaIntegration(helloLambda));
 
-    const user = api.root.addResource('user');
-    user.addMethod('GET', new apigateway.LambdaIntegration(getUsersLambda));
+    const users = api.root.addResource('users');
+    users.addMethod('GET', new apigateway.LambdaIntegration(getUsersLambda));
 
-    const idOfUser = user.addResource('{id}');
+    const idOfUser = users.addResource('{id}');
     idOfUser.addMethod('GET', new apigateway.LambdaIntegration(getUserByIdLambda));
     idOfUser.addMethod('PUT', new apigateway.LambdaIntegration(putUserByIdLambda));
   }
