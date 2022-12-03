@@ -1,6 +1,6 @@
 {
   "name": "prisma-lambda-app",
-  "packageManager": "pnpm@7.17.0",
+  "packageManager": "pnpm@7.17.1",
   "private": true,
   "version": "0.1.0",
   "bin": {
@@ -20,13 +20,13 @@
   },
   "devDependencies": {
     "@types/jest": "^29.2.3",
-    "@types/node": "18.11.9",
+    "@types/node": "18.11.10",
     "@types/prettier": "2.7.1",
-    "@typescript-eslint/eslint-plugin": "^5.44.0",
-    "aws-cdk": "2.51.1",
-    "esbuild": "^0.15.15",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "aws-cdk": "2.53.0",
+    "esbuild": "^0.15.16",
     "esbuild-jest": "^0.5.0",
-    "eslint": "^8.28.0",
+    "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^23.0.0",
     "eslint-define-config": "^1.12.0",
@@ -43,8 +43,8 @@
     "typescript": "~4.9.3"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.51.1",
-    "constructs": "^10.1.170",
+    "aws-cdk-lib": "2.53.0",
+    "constructs": "^10.1.178",
     "source-map-support": "^0.5.21"
   }
 }
