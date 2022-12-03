@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "studio": "prisma studio --browser none",
+    "generate": "prisma generate",
+    "seed": "tsx prisma/seed.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -21,6 +23,7 @@
     "prisma": "^4.7.1",
     "prisma-erd-generator": "^1.2.4",
     "source-map-support": "^0.5.21",
+    "tsx": "^3.12.1",
     "typescript": "~4.9.3"
   }
 }
